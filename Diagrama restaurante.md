@@ -3,36 +3,36 @@
 ```mermaid
 classDiagram
     class MenuItem {
-        -name: str
-        -price: float
-        +calculate_price(quantity: int) float
+        name: str
+        price: float
+        calculate_price(quantity: int) float
     }
 
     class Beverage {
-        -bottle_type: str
-        -size: str
-        +with_ice(answer) str
+        bottle_type: str
+        size: str
+        with_ice(answer) str
     }
 
     class Apetizer {
-        -sauce: str
+        sauce: str
     }
 
     class Dessert {
-        -flavour: str
+        flavour: str
     }
 
     class MainPlate {
-        -accompaniment1: str
-        -accompaniment2: str
+        accompaniment1: str
+        accompaniment2: str
     }
 
     class Order {
-        -number: int
-        -order: list
-        +add_items(menu_item: MenuItem, quantity: int)
-        +show_order() list
-        +calculate_bill() str
+        number: int
+        order: list
+        add_items(menu_item: MenuItem, quantity: int)
+        show_order() list
+        calculate_bill() str
     }
 
     MenuItem <|-- Beverage
@@ -40,4 +40,3 @@ classDiagram
     MenuItem <|-- Dessert
     MenuItem <|-- MainPlate
 
-    Order --> MenuItem : contains 0..*
