@@ -86,5 +86,30 @@ class Rectangle():
             return True
         else:
             return False
+### Esto es un ejempo de uso
+p1 = Point(1, 2)
+p2 = Point(4, 6)
+
+line = Line(p1, p2)
+
+print(f"Slope (degrees): {line.compute_slope():.2f}")
+print(f"Length: {line.compute_length():.2f}")
+
+print("Crosses vertical axis?", line.compute_vertical_cross())
+print("Crosses horizontal axis?", line.compute_horizontal_cross())
+
+x_vals, y_vals = line.discretized_line(distance=5)
+print("Discretized points on line:")
+for x, y in zip(x_vals, y_vals):
+    print(f"({x:.2f}, {y:.2f})")
+
+rect_center = Point(3, 4)
+rectangle = Rectangle(width=6, height=8, point_center=rect_center, method=4)
+
+print(f"Rectangle area: {rectangle.compute_area()}")
+print(f"Rectangle perimeter: {rectangle.compute_perimeter()}")
+
+test_point = Point(4, 5)
+print("Point inside rectangle?", rectangle.compute_interference_point(test_point))
 
 
