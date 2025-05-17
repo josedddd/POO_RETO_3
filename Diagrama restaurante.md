@@ -32,7 +32,7 @@ classDiagram
         order: list
         add_items(menu_item: MenuItem, quantity: int)
         show_order() list
-        calculate_bill() str
+        calculate_bill() float
     }
 
     MenuItem <|-- Beverage
