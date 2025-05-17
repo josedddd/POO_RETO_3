@@ -32,14 +32,14 @@ class Line():
             return True
         else:
             return False
- ### Este es el ejercicio extra
+
     def discretized_line(self, distance: int) -> list:
         x_start = self.point_start.x
         x_end = self.point_end.x
         delta_x = x_end - x_start
         step = delta_x / (distance - 1)
         x_values = [x_start + i * step for i in range(distance)]
-        y_values = [ self.point_start.y + x * math.tan(self.slope) for x in x_values]
+        y_values = [ self.point_start.y + (x) * math.tan(self.slope) for x in x_values]
         return [x_values, y_values]
 
 
@@ -52,6 +52,8 @@ class Rectangle():
                                          point_center.y - height / 2)
         elif method == 2:
             self.point_center = point_center
+            self.point_left_down = Point(point_center.x - width / 2,
+                                         point_center.y - height / 2)
         elif method == 3:
             self.point_left_down = Point(point_center.x - width / 2,
                                          point_center.y - height / 2)
@@ -85,7 +87,15 @@ class Rectangle():
                 self.point_left_down.y <= point.y <= self.point_left_up.y):
             return True
         else:
-            
+            return False
+    def compute_interference_line(self, line:Line) -> str :
+      y_values = [math.tan(line.slope)*i + line.point_start.y for i in range(line.point_start.x, line.point_end.x)] 
+      for y in y_values:
+        if y <= self.height + self.point_left_down.y:
+            return True
+        else:
+            return False
+
 class Square(Rectangle):
     def __init__(self, width: float , point_center:Point, method):
         super().__init__(width, width, point_center, method)
