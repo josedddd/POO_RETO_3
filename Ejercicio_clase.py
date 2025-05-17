@@ -39,7 +39,7 @@ class Line():
         delta_x = x_end - x_start
         step = delta_x / (distance - 1)
         x_values = [x_start + i * step for i in range(distance)]
-        y_values = [ self.point_start.y + (x - x_start) * math.tan(self.slope) for x in x_values]
+        y_values = [ self.point_start.y + x * math.tan(self.slope) for x in x_values]
         return [x_values, y_values]
 
 
