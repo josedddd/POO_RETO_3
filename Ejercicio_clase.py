@@ -32,7 +32,7 @@ class Line():
             return True
         else:
             return False
-
+ ### Este es el ejercicio extra
     def discretized_line(self, distance: int) -> list:
         x_start = self.point_start.x
         x_end = self.point_end.x
