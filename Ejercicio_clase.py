@@ -88,7 +88,7 @@ class Rectangle():
             return True
         else:
             return False
-    def compute_interference_line(self, line:Line) -> str :
+    def compute_interference_line(self, line:Line) -> bool :
         discretized_line=line.discretized_line(distance=100)
         for x,y in discretized_line:
             if y>= self.height+self.point_left_down.y:
