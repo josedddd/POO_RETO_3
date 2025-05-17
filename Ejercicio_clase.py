@@ -89,12 +89,12 @@ class Rectangle():
         else:
             return False
     def compute_interference_line(self, line:Line) -> str :
-      y_values = [math.tan(line.slope)*i + line.point_start.y for i in range(line.point_start.x, line.point_end.x)] 
-      for y in y_values:
-        if y <= self.height + self.point_left_down.y:
-            return True
-        else:
-            return False
+        discretized_line=line.discretized_line(distance=100)
+        for x,y in discretized_line:
+            if y>= self.height+self.point_left_down.y:
+                return True
+        return False
+
 
 class Square(Rectangle):
     def __init__(self, width: float , point_center:Point, method):
