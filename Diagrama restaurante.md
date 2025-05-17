@@ -39,4 +39,5 @@ classDiagram
     MenuItem <|-- Apetizer
     MenuItem <|-- Dessert
     MenuItem <|-- MainPlate
+    Order *-- MenuItem : contains
 
