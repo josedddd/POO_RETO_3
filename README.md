@@ -28,3 +28,19 @@ class Line():
 
     def compute_length(self) -> float:
         return self.length
+
+```
+Ahora bien, para las otras dos funciones de "vertical cross" y de "horizontal cross", el metodo mas sencillo para resolverlo es ver si el punto incial y final pasan por 0, ya que ambos son atributos de instancia. (Yo se que es un poco como trampa, pero cumple su funcion y es el metodo mas rapido)
+```python
+ def compute_vertical_cross(self) -> bool:
+        if self.point_start.x <= 0 <= self.point_end.x:
+            return True
+        else:
+            return False
+
+    def compute_horizontal_cross(self) -> bool:
+        if self.point_start.y <= 0 <= self.point_end.y:
+            return True
+        else:
+            return False
+```
