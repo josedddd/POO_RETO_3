@@ -191,5 +191,5 @@ class Order:
 
         discount_bill = min(discount_options)
         return f"Valor sin descuento {round(real_bill, 2)}, Valor con descuento {round(discount_bill, 2)}"
-
-
+ ```
+Por ultimo creo el menu con 10 items o mas, y ademas hago una orden de ejemplo. 
