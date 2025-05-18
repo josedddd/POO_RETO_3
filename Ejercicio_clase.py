@@ -40,7 +40,7 @@ class Line():
         step = delta_x / (distance - 1)
         x_values = [x_start + i * step for i in range(distance)]
         y_values = [ self.point_start.y + (x) * math.tan(self.slope) for x in x_values]
-        return list[x_values, y_values]
+        return list(zip(x_values, y_values))
 
 
 class Rectangle():
@@ -81,7 +81,7 @@ class Rectangle():
     def compute_perimeter(self) -> float:
         perimeter = 2 * self.width + 2 * self.height
         return perimeter
-
+    ### Importante, los dos metodos posteriores solo funcionan con algunos metodos de inalizacion (si se quieren probar usar el metodo 4)
     def compute_interference_point(self, point: Point) -> bool:
         if (self.point_left_down.x <= point.x <= self.point_right_down.x and
                 self.point_left_down.y <= point.y <= self.point_left_up.y):
@@ -96,3 +96,25 @@ class Rectangle():
                 return True
         return False
 
+## Esto es un ejemplo de prueba
+p1 = Point(1, 1)
+p2 = Point(5, 5)
+# Creamos la línea
+line = Line(p1, p2)
+
+print("Slope in degrees:", line.compute_slope())
+print("Length:", line.compute_length())
+
+# Creamos un rectángulo centrado en (3,3) con ancho 4 y alto 4
+rect_center = Point(3, 3)
+rectangle = Rectangle(width=4, height=4, point_center=rect_center, method=4)
+
+print("Rectangle area:", rectangle.compute_area())
+print("Rectangle perimeter:", rectangle.compute_perimeter())
+
+# Verificamos si un punto está dentro del rectángulo
+test_point = Point(3, 4)
+print("Point inside rectangle?", rectangle.compute_interference_point(test_point))
+
+# Verificamos si la línea interfiere (toca) con el rectángulo
+print("Line intersects rectangle?", rectangle.compute_interference_line(line))
