@@ -6,7 +6,7 @@ Aquí explicaré cómo hice las cosas generalmente:
 
 # Ejercicio en clase
 
-Para el ejercicio en clase, creé lo que dice el ejercicio, es decir, una clase **Línea**, que tiene dos atributos de instancia: el punto 1 y el punto 2 (estos pertenecen a la clase **Punto** y por eso esto es composición). Cabe aclarar que importo `math` porque me piden la pendiente en grados.
+Para el ejercicio en clase, creé lo que dice el ejercicio, es decir, una clase Línea `Line`, que tiene dos atributos de instancia: el punto 1 y el punto 2 (estos pertenecen a la clase `Point` y por eso esto es composición). Cabe aclarar que importo `math` porque me piden la pendiente en grados.
 
 ```python
 import math
@@ -33,7 +33,7 @@ class Line():
         return self.length
 
 ```
-Ahora bien, para las otras dos funciones de "vertical cross" y "horizontal cross", el método más sencillo para resolverlo es ver si el punto inicial y final pasan por 0, ya que ambos son atributos de instancia. (Sé que es un poco como trampa, pero cumple su función y es el método más rápido).
+Ahora bien, para las otras dos funciones de `vertical cross` y `horizontal cross`, el método más sencillo para resolverlo es ver si el punto inicial y final pasan por 0, ya que ambos son atributos de instancia. (Sé que es un poco como trampa, pero cumple su función y es el método más rápido).
 
 ```python
  def compute_vertical_cross(self) -> bool:
