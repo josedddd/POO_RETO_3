@@ -57,7 +57,7 @@ En consiguiente este codigo coresponde al metodo opcional el cual era discretiza
         y_values = [ self.point_start.y + (x) * math.tan(self.slope) for x in x_values]
         return list(zip(x_values, y_values))
 ```
-Y eso es todo, en el resto de codgio se inicializa el rectangulo añadiendo un cuarto metodo y ademas se añade la funcion de interference_line, que me dice si el rectangulo toca o no una recta, usando al metodo de la linea que se definio previamente: discretized line (muestra de composicion)
+Y eso es todo, en el resto de codgio se inicializa el rectangulo añadiendo un cuarto metodo y ademas se añade la funcion de interference_line, que me dice si el rectangulo toca o no una recta, usando al metodo de la linea que se definio previamente: discretized line (muestra de composicion). Cabe mencionar que las funciones de interseccion con un punto o una linea solo sirven si se inisiliza con el metodo 3 o 4 asi que se recomeinda utilizar estos (no quise cambiarlo perdon ;(
 ```python
 
 class Rectangle():
