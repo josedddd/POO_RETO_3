@@ -3,6 +3,7 @@ Este es el reto 3 :)
 
 Aqui explicare como hice las cosas generalmente:
 
+# Ejercicio en clase
 Para el ejercicio en clase, cree lo que dice el ejercicio, es decir cree una clase linea, que tiene dos atributos de instancia que son el punto 1 y el punto 2 (estos pertenecen a la clase punto y por eso esto es composicion). Cabe aclarar que importo math porque me piden la pendiente en grados. 
 
 ```python
