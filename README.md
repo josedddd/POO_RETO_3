@@ -55,3 +55,60 @@ En consiguiente este codigo coresponde al metodo opcional el cual era discretiza
         x_values = [x_start + i * step for i in range(distance)]
         y_values = [ self.point_start.y + (x) * math.tan(self.slope) for x in x_values]
         return list(zip(x_values, y_values))
+```
+Y eso es todo, en el resto de codgio se inicializa el rectangulo añadiendo un cuarto metodo y ademas se añade la funcion de interference_line, que me dice si el rectangulo toca o no una recta
+```python
+
+class Rectangle():
+    def __init__(self, width: float, height: float, point_center: Point, method: int):
+        self.height = height
+        self.width = width
+        if method == 1:
+            self.point_left_down = Point(point_center.x - width / 2,
+                                         point_center.y - height / 2)
+        elif method == 2:
+            self.point_center = point_center
+            self.point_left_down = Point(point_center.x - width / 2,
+                                         point_center.y - height / 2)
+        elif method == 3:
+            self.point_left_down = Point(point_center.x - width / 2,
+                                         point_center.y - height / 2)
+            self.point_right_up = Point(point_center.x + width / 2,
+                                        point_center.y + height / 2)
+        elif method == 4:
+            self.point_right_up = Point(point_center.x + width / 2,
+                                        point_center.y + height / 2)
+            self.point_right_down = Point(point_center.x + width / 2,
+                                          point_center.y - height / 2)
+            self.point_left_down = Point(point_center.x - width / 2,
+                                        point_center.y - height / 2)
+            self.point_left_up = Point(point_center.x - width / 2,
+                                       point_center.y + height / 2)
+
+            self.LineH_up = Line(self.point_left_up, self.point_right_up)
+            self.LineH_down = Line(self.point_left_down, self.point_right_down)
+            self.LineV_right = Line(self.point_right_down, self.point_right_up)
+            self.LineV_left = Line(self.point_left_down, self.point_left_up)
+
+    def compute_area(self) -> float:
+        area = self.width * self.height
+        return area
+
+    def compute_perimeter(self) -> float:
+        perimeter = 2 * self.width + 2 * self.height
+        return perimeter
+
+    def compute_interference_point(self, point: Point) -> bool:
+        if (self.point_left_down.x <= point.x <= self.point_right_down.x and
+                self.point_left_down.y <= point.y <= self.point_left_up.y):
+            return True
+        else:
+            return False
+        
+    def compute_interference_line(self, line:Line) -> bool :
+        discretized_line=line.discretized_line(distance=100)
+        for x,y in discretized_line:
+            if y>= self.height+self.point_left_down.y:
+                return True
+        return False
+```
