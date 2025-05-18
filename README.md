@@ -1,10 +1,12 @@
 # POO_RETO_3
+
 Este es el reto 3 :)
 
-Aqui explicare como hice las cosas generalmente:
+Aquí explicaré cómo hice las cosas generalmente:
 
 # Ejercicio en clase
-Para el ejercicio en clase, cree lo que dice el ejercicio, es decir cree una clase linea, que tiene dos atributos de instancia que son el punto 1 y el punto 2 (estos pertenecen a la clase punto y por eso esto es composicion). Cabe aclarar que importo math porque me piden la pendiente en grados. 
+
+Para el ejercicio en clase, creé lo que dice el ejercicio, es decir, una clase **Línea**, que tiene dos atributos de instancia: el punto 1 y el punto 2 (estos pertenecen a la clase **Punto** y por eso esto es composición). Cabe aclarar que importo `math` porque me piden la pendiente en grados.
 
 ```python
 import math
@@ -31,7 +33,8 @@ class Line():
         return self.length
 
 ```
-Ahora bien, para las otras dos funciones de "vertical cross" y de "horizontal cross", el metodo mas sencillo para resolverlo es ver si el punto incial y final pasan por 0, ya que ambos son atributos de instancia. (Yo se que es un poco como trampa, pero cumple su funcion y es el metodo mas rapido)
+Ahora bien, para las otras dos funciones de "vertical cross" y "horizontal cross", el método más sencillo para resolverlo es ver si el punto inicial y final pasan por 0, ya que ambos son atributos de instancia. (Sé que es un poco como trampa, pero cumple su función y es el método más rápido).
+
 ```python
  def compute_vertical_cross(self) -> bool:
         if self.point_start.x <= 0 <= self.point_end.x:
@@ -57,7 +60,11 @@ En consiguiente este codigo coresponde al metodo opcional el cual era discretiza
         y_values = [ self.point_start.y + (x) * math.tan(self.slope) for x in x_values]
         return list(zip(x_values, y_values))
 ```
-Y eso es todo, en el resto de codgio se inicializa el rectangulo añadiendo un cuarto metodo y ademas se añade la funcion de interference_line, que me dice si el rectangulo toca o no una recta, usando al metodo de la linea que se definio previamente: discretized line (muestra de composicion). Cabe mencionar que las funciones de interseccion con un punto o una linea solo sirven si se inisiliza con el metodo 3 o 4 asi que se recomeinda utilizar estos (no quise cambiarlo perdon ;(
+Y eso es todo. En el resto del código se inicializa el rectángulo añadiendo un cuarto método y además se añade la función `interference_line`, que me dice si el rectángulo toca o no una recta, usando el método de la línea que se definió previamente: `discretized_line` (muestra de composición). 
+
+Cabe mencionar que las funciones de intersección con un punto o una línea solo sirven si se inicializa con el método 3 o 4, así que se recomienda utilizar estos (no quise cambiarlo, perdón ;().
+
+
 ```python
 
 class Rectangle():
@@ -115,7 +122,10 @@ class Rectangle():
 ```
 # Restaurante
 
-Con respecto al restaurante, primero cree el diagrama UML para tener un mejor contexto de las relaciones entre clase y luego  se hizo lo que las instrucciones decian, algo interesante es que al metodo calculate price, tiene como parametro la cantidad, algo que se utilizara mas adelante para calcular la cuenta en total. En adicion se hacen las relaciones de herencia como dice la instruccion (todos los items heredan de MenuItem). Cabe aclarar que a cada clase la personalize un poco y le puse mas atributos de instancia, como salsa, o acompañamiento 
+Con respecto al restaurante, primero creé el diagrama UML para tener un mejor contexto de las relaciones entre clases y luego se hizo lo que las instrucciones decían. Algo interesante es que el método `calculate_price` tiene como parámetro la cantidad, algo que se utilizará más adelante para calcular la cuenta total. 
+
+Además, se hacen las relaciones de herencia como indica la instrucción (todos los ítems heredan de `MenuItem`). Cabe aclarar que a cada clase la personalicé un poco y le puse más atributos de instancia, como salsa o acompañamiento.
+
 ```python
 
 class MenuItem:
@@ -158,7 +168,7 @@ class MainPlate(MenuItem):
         self.accompaniment1 = accompaniment_1
         self.accompaniment2 = accompaniment_2
 ```
-Por ultimo en order, uso composicion para crear una lista con order, adicionalmente uso un for para ir sumando la cuenta. Por ultmo hago tres descuentos, uno por cantidad de elementos (para eso se usa el quantity) y los otros dos por "combo" es decir por productos especificos. 
+Por último, en la clase `Order` uso composición para crear una lista con los pedidos. Además, utilizo un ciclo `for` para ir sumando el total de la cuenta. Por último, aplico tres descuentos: uno por la cantidad de elementos (para esto se usa el parámetro `quantity`) y los otros dos por "combo", es decir, por productos específicos.
 ```python
 
 class Order:
@@ -192,7 +202,7 @@ class Order:
         discount_bill = min(discount_options)
         return f"Valor sin descuento {round(real_bill, 2)}, Valor con descuento {round(discount_bill, 2)}"
  ```
-Por ultimo creo el menu con 10 items o mas, y ademas hago una orden de ejemplo. 
+Creo el menu y un ejemplo de que el codigo si funciona.
 ```python
 
 ##Menu
