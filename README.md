@@ -115,7 +115,7 @@ class Rectangle():
 ```
 # Restaurante
 
-Con respecto al restaurante, en esta primera parte se hizo lo que las instrucciones decian, algo interesante es que al metodo calculate price, tiene como parametro la cantidad. Cabe aclarar que a cada clase la personalize un poco y le puse mas atributos de instancia, como salsa, o acompañamiento 
+Con respecto al restaurante, en esta primera parte se hizo lo que las instrucciones decian, algo interesante es que al metodo calculate price, tiene como parametro la cantidad, algo que se utilizara mas adelante para calcular la cuenta en total. En adicion se hacen las relaciones de herencia como dice la instruccion (todos los items heredan de MenuItem). Cabe aclarar que a cada clase la personalize un poco y le puse mas atributos de instancia, como salsa, o acompañamiento 
 ```python
 
 class MenuItem:
@@ -158,5 +158,5 @@ class MainPlate(MenuItem):
         self.accompaniment1 = accompaniment_1
         self.accompaniment2 = accompaniment_2
 ```
-
+Por ultimo en order, uso list comprehension para añador
 
