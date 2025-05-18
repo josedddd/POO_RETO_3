@@ -44,3 +44,14 @@ Ahora bien, para las otras dos funciones de "vertical cross" y de "horizontal cr
         else:
             return False
 ```
+En consiguiente este codigo coresponde al metodo opcional el cual era discretizar la linea (con esto tambien se puede calcular el vertical cross y el horizontal cross) Lo que Hago aqui es primero defino la pendiente, y creo los intervalos (o steps) en los que quiero que la linea sea discretizada 
+```python
+
+ def discretized_line(self, distance: int) -> list:
+        x_start = self.point_start.x
+        x_end = self.point_end.x
+        delta_x = x_end - x_start
+        step = delta_x / (distance - 1)
+        x_values = [x_start + i * step for i in range(distance)]
+        y_values = [ self.point_start.y + (x) * math.tan(self.slope) for x in x_values]
+        return list(zip(x_values, y_values))
