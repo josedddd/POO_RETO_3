@@ -40,7 +40,7 @@ class Line():
         step = delta_x / (distance - 1)
         x_values = [x_start + i * step for i in range(distance)]
         y_values = [ self.point_start.y + (x) * math.tan(self.slope) for x in x_values]
-        return list(zip(x_values, y_values))
+        return list[x_values, y_values]
 
 
 class Rectangle():
@@ -95,3 +95,4 @@ class Rectangle():
             if y>= self.height+self.point_left_down.y:
                 return True
         return False
+
