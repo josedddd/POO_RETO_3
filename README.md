@@ -115,7 +115,7 @@ class Rectangle():
 ```
 # Restaurante
 
-Con respecto al restaurante, en esta primera parte se hizo lo que las instrucciones decian, algo interesante es que al metodo calculate price, tiene como parametro la cantidad, algo que se utilizara mas adelante para calcular la cuenta en total. En adicion se hacen las relaciones de herencia como dice la instruccion (todos los items heredan de MenuItem). Cabe aclarar que a cada clase la personalize un poco y le puse mas atributos de instancia, como salsa, o acompañamiento 
+Con respecto al restaurante, primero cree el diagrama UML para tener un mejor contexto de las relaciones entre clase y luego  se hizo lo que las instrucciones decian, algo interesante es que al metodo calculate price, tiene como parametro la cantidad, algo que se utilizara mas adelante para calcular la cuenta en total. En adicion se hacen las relaciones de herencia como dice la instruccion (todos los items heredan de MenuItem). Cabe aclarar que a cada clase la personalize un poco y le puse mas atributos de instancia, como salsa, o acompañamiento 
 ```python
 
 class MenuItem:
