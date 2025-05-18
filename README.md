@@ -57,7 +57,7 @@ En consiguiente este codigo coresponde al metodo opcional el cual era discretiza
         y_values = [ self.point_start.y + (x) * math.tan(self.slope) for x in x_values]
         return list(zip(x_values, y_values))
 ```
-Y eso es todo, en el resto de codgio se inicializa el rectangulo añadiendo un cuarto metodo y ademas se añade la funcion de interference_line, que me dice si el rectangulo toca o no una recta
+Y eso es todo, en el resto de codgio se inicializa el rectangulo añadiendo un cuarto metodo y ademas se añade la funcion de interference_line, que me dice si el rectangulo toca o no una recta, usando al metodo de la linea que se definio previamente: discretized line (muestra de composicion)
 ```python
 
 class Rectangle():
@@ -113,3 +113,50 @@ class Rectangle():
                 return True
         return False
 ```
+# Restaurante
+
+Con respecto al restaurante, en esta primera parte se hizo lo que las instrucciones decian, algo interesante es que al metodo calculate price, tiene como parametro la cantidad. Cabe aclarar que a cada clase la personalize un poco y le puse mas atributos de instancia, como salsa, o acompañamiento 
+```python
+
+class MenuItem:
+    def __init__(self, name: str, price: float):
+        self.name = name
+        self.price = price
+
+    def calculate_price(self, quantity: int) -> float:
+        return self.price * quantity
+
+
+class Beverage(MenuItem):
+    def __init__(self, name, price, bottle_type: str, size: str):
+        super().__init__(name, price)
+        self.size = size
+        self.bottle_type = bottle_type
+
+    def with_ice(self, answer) -> str:
+        if answer == "yes":
+            return f"your {self.name} is with ice"
+        elif answer == "no":
+            return f"your {self.name} is without ice"
+
+
+class Apetizer(MenuItem):
+    def __init__(self, name, price, sauce: str):
+        super().__init__(name, price)
+        self.sauce = sauce
+
+
+class Dessert(MenuItem):
+    def __init__(self, name, price, flavour: str):
+        super().__init__(name, price)
+        self.flavour = flavour
+
+
+class MainPlate(MenuItem):
+    def __init__(self, name, price, accompaniment_1: str, accompaniment_2: str):
+        super().__init__(name, price)
+        self.accompaniment1 = accompaniment_1
+        self.accompaniment2 = accompaniment_2
+```
+
+
