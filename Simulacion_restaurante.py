@@ -66,42 +66,42 @@ class Order:
         if "Hamburger" in names and "Coca_cola" in names:
             discount_options.append(real_bill * 0.7)
         elif "Ice_cream" in names and "Chocolate_cake" in names:
-            discount_options.append(real_bill * 0.82)
+            discount_options.append(real_bill * 0.8)
 
         discount_bill = min(discount_options)
         return f"Valor sin descuento {round(real_bill, 2)}, Valor con descuento {round(discount_bill, 2)}"
 
-
-#Menu
-# Bebidas
-drink1 = Beverage(name="Coca_cola", price=5.00, bottle_type="glass", size="medium")
-drink2 = Beverage(name="Lemonade", price=4.00, bottle_type="plastic", size="big")
-drink3 = Beverage(name="Iced_Tea", price=4.50, bottle_type="glass", size="small")
-drink4 = Beverage(name="Orange_Juice", price=6.00, bottle_type="glass", size="big")
+##Menu
+## Bebidas
+Coca_cola = Beverage(name="Coca Cola", price=5.00, bottle_type="glass", size="medium")
+Lemonade = Beverage(name="Lemonade", price=4.00, bottle_type="plastic", size="big")
+Iced_Tea = Beverage(name="Iced Tea", price=4.50, bottle_type="glass", size="small")
+Orange_Juice = Beverage(name="Orange Juice", price=6.00, bottle_type="glass", size="big")
 
 # Postres
-dessert1 = Dessert(name="Ice_cream", price=7.00, flavour="vanilla")
-dessert2 = Dessert(name="Chocolate_cake", price=8.00, flavour="chocolate")
-dessert3 = Dessert(name="Cheesecake", price=9.00, flavour="strawberry")
+Ice_cream_vanilla = Dessert(name="Ice Cream", price=7.00, flavour="vanilla")
+Chocolate_cake = Dessert(name="Chocolate Cake", price=8.00, flavour="chocolate")
+Cheesecake_strawberry = Dessert(name="Cheesecake", price=9.00, flavour="strawberry")
 
 # Aperitivos
-apetizer1 = Apetizer(name="Potato_chips", price=3.00, sauce="Tomato")
-apetizer2 = Apetizer(name="Nachos", price=4.50, sauce="Cheese")
-apetizer3 = Apetizer(name="Onion_rings", price=4.00, sauce="BBQ")
-apetizer4 = Apetizer(name="Garlic_bread", price=3.50, sauce="Garlic")
+Potato_chips_Tomato = Apetizer(name="Potato Chips", price=3.00, sauce="Tomato")
+Nachos_Cheese = Apetizer(name="Nachos", price=4.50, sauce="Cheese")
+Onion_rings_BBQ = Apetizer(name="Onion Rings", price=4.00, sauce="BBQ")
+Garlic_bread_Garlic = Apetizer(name="Garlic Bread", price=3.50, sauce="Garlic")
 
 # Platos fuertes
-main_plate1 = MainPlate(name="Hamburger", price=10.00, accompaniment_1="fries", accompaniment_2="salad")
-main_plate2 = MainPlate(name="Grilled_Chicken", price=12.00, accompaniment_1="rice", accompaniment_2="vegetables")
-main_plate3 = MainPlate(name="Pasta_Bolognese", price=11.00, accompaniment_1="bread", accompaniment_2="parmesan")
-main_plate4 = MainPlate(name="Steak", price=15.00, accompaniment_1="mashed potatoes", accompaniment_2="grilled vegetables")
+Hamburger_fries_salad = MainPlate(name="Hamburger", price=10.00, accompaniment_1="fries", accompaniment_2="salad")
+Grilled_Chicken_rice_vegetables = MainPlate(name="Grilled Chicken", price=12.00, accompaniment_1="rice", accompaniment_2="vegetables")
+Pasta_Bolognese_bread_parmesan = MainPlate(name="Pasta Bolognese", price=11.00, accompaniment_1="bread", accompaniment_2="parmesan")
+Steak_mashed_grilled = MainPlate(name="Steak", price=15.00, accompaniment_1="mashed potatoes", accompaniment_2="grilled vegetables")
 
-# Creo una orden
+# Creo una orden de ejemplo
 order1 = Order(1)
-order1.add_items(drink1, 2)
-order1.add_items(dessert1, 4)
-order1.add_items(apetizer1, 6)
-order1.add_items(main_plate1, 7)
+order1.add_items(Coca_cola, 2)
+order1.add_items(Ice_cream_vanilla, 4)
+order1.add_items(Potato_chips_Tomato, 6)
+order1.add_items(Hamburger_fries_salad, 7)
+
+#Verifico que funcione correctamente
 print(order1.show_order())
 print(order1.calculate_bill())
-
